@@ -1,0 +1,61 @@
+{% extends 'carrot_app/index.html'%}
+
+{%block titulo%}
+<title> Bienvenidos </title>
+
+{% endblock titulo%}
+
+{%block content%}
+<img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="assets/img/intro.jpg" alt="..." />
+            <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+                <h2 class="section-heading mb-4">
+                    <span class="section-heading-upper">Catering</span>
+                    <span class="section-heading-lower">Mis Eventos</span>
+                </h2>
+                <form class="search" action="{% url 'search_pedidos' %}" method="GET">
+                    <input type="text" name="search" class="search-bar" placeholder="Buscar pedido...">
+                    <button type="submit"
+                        class="btn btn-primary"
+                        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem; transform: scale(1.2);"
+                        ><i class="fa-solid fa-magnifying-glass" title="Detail Record"></i>
+                    </button>
+                </form>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Eventro</th>
+                            <th>Presupuesto</th>  
+                            <th>Pax</th>                  
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for c in catering  %}
+                        <tr>
+                            <td>{{ t.id }}</td>
+                            <td>{{ t.evento }}</td>
+                            <td>{{ t.presupuesto }}</td>
+                            <td>{{ t.pax }}</td>
+                            
+                            
+                            <td>
+                                <a
+                                  href="{% url 'catering_update' t.id %}"
+                                  class="btn btn-primary"
+                                  style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                                  ><i class="fa fa-edit fa-sm" title="Edit Record"></i>
+                                </a>
+                                <a
+                                  href="{% url 'caterign_delete' t.id %}"
+                                  class="btn btn-danger"
+                                  style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                                  ><i class="fa fa-trash fa-sm" title="Delete Record"></i>
+                                </a>                
+                            </td>  
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>       
+            </div>
+{% endblock content%}

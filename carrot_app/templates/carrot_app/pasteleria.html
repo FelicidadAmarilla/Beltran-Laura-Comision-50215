@@ -1,0 +1,18 @@
+{% extends 'carrot_app/index.html'%}
+
+{%block titulo%}
+<title> Bienvenidos </title>
+
+{% endblock titulo%}
+
+{%block content%}
+<img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="assets/img/intro.jpg" alt="..." />
+            <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+                <h2 class="section-heading mb-4">
+                    <span class="section-heading-upper">Pastelería</span>
+                    <span class="section-heading-lower">Delicias individulaes</span>
+                </h2>
+                <p class="mb-3">Tamibién puedes llevar nuestros postres, tortas y otros productos en formato individual o en box para regalo</p>
+                <div class="intro-button mx-auto"><a class="btn btn-primary btn-xl" href="{% url 'pasteleria_form' %}">Mira nuestro catalogo!</a></div>
+            </div>
+{% endblock content%}

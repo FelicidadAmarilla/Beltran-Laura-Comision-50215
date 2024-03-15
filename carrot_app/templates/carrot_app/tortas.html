@@ -1,0 +1,22 @@
+{% extends 'carrot_app/index.html'%}
+
+{%block titulo%}
+<title> Bienvenidos </title>
+
+{% endblock titulo%}
+
+{%block content%}
+<img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="assets/img/intro.jpg" alt="..." />
+            <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+                <h2 class="section-heading mb-4">
+                    <span class="section-heading-upper">Tortas</span>
+                    <span class="section-heading-lower">Tortas Personalizadas</span>
+                </h2>
+                <p class="mb-3">Personalizamos tu torta, diferentes temáticas, sabores y combinaciones increíbles para tus festejos</p>
+                <div class="intro-button mx-auto">
+                    <a class="btn btn-primary btn-xl" href="{% url 'tortas_form' %}">Cotiza tu torta!</a>
+                    <a class="btn btn-primary btn-xl" href="{% url 'tortas_pedidos' %}">Corregir mi pedido</a>
+                </div>
+        
+            </div>
+{% endblock content%}

@@ -1,0 +1,58 @@
+{% extends 'carrot_app/index.html'%}
+
+{%block titulo%}
+<title> Bienvenidos </title>
+
+{% endblock titulo%}
+
+{%block content%}
+<img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="assets/img/intro.jpg" alt="..." />
+            <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+                <h2 class="section-heading mb-4">
+                    <span class="section-heading-upper">Tortas</span>
+                    <span class="section-heading-lower">Mis Pedidos</span>
+                </h2>
+                <form class="search" action="{% url 'search_pedidos' %}" method="GET">
+                    <input type="text" name="search" class="search-bar" placeholder="Buscar pedido...">
+                    <button type="submit"
+                        class="btn btn-primary"
+                        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem; transform: scale(1.2);"
+                        ><i class="fa-solid fa-magnifying-glass" title="Detail Record"></i>
+                    </button>
+                </form>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Nombre</th>
+                            <th>Porciones</th>                   
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for t in tortas  %}
+                        <tr>
+                            <td>{{ t.id }}</td>
+                            <td>{{ t.nombre }}</td>
+                            <td>{{ t.porciones }}</td>
+                            
+                            <td>
+                                <a
+                                  href="{% url 'tortas_update' t.id %}"
+                                  class="btn btn-primary"
+                                  style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                                  ><i class="fa fa-edit fa-sm" title="Edit Record"></i>
+                                </a>
+                                <a
+                                  href="{% url 'tortas_delete' t.id %}"
+                                  class="btn btn-danger"
+                                  style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                                  ><i class="fa fa-trash fa-sm" title="Delete Record"></i>
+                                </a>                
+                            </td>  
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>       
+            </div>
+{% endblock content%}
