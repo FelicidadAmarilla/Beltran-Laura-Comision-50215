@@ -41,10 +41,10 @@ class TortasForm(FormView):
     template_name = 'carrot_app/tortas_form.html'
     success_url = reverse_lazy('tortas')
 
-class TortasCreate(CreateView):
+"""class TortasCreate(CreateView):
     model = Tortas
     fields = '__all__'
-    success_url = reverse_lazy('tortas')
+    success_url = reverse_lazy('tortas')"""
 
 class TortaUpdate(UpdateView):
     model = Tortas
