@@ -11,47 +11,37 @@
                 <h2 class="section-heading mb-4">
                     <span class="section-heading-upper">Pasteleria</span>
                     <span class="section-heading-lower">Mis Pedidos</span>
-                </h2>
-                <form class="search" action="{% url 'search_pedidos' %}" method="GET">
-                    <input type="text" name="search" class="search-bar" placeholder="Buscar pedido...">
-                    <button type="submit"
-                        class="btn btn-primary"
-                        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem; transform: scale(1.2);"
-                        ><i class="fa-solid fa-magnifying-glass" title="Detail Record"></i>
-                    </button>
+                </h2>        
                 </form>
                 <table class="table table-striped">
                     <thead>
                         <tr>
                             <th>Id</th>
                             <th>Producto</th>
-                            <th>Tamaño</th> 
-                            <th>Cantidad</th>                    
+                            <th>Tamaño</th>   
+                            <th>Cantidad</th>                  
                             <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
                     {% for p in pasteleria  %}
                         <tr>
-                            <td>{{ t.id }}</td>
-                            <td>{{ t.producto }}</td>
-                            <td>{{ t.tamaño }}</td>
-                            <td>{{ t.cantidad }}</td>
+                            <td>{{ p.id }}</td>
+                            <td>{{ p.producto }}</td>
+                            <td>{{ p.tamaño }}</td>
+                            <td>{{ p.cantidad }}</td>
                             
                             <td>
-                                <a
-                                  href="{% url 'pasteleria_update' t.id %}"
-                                  class="btn btn-primary"
-                                  style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
-                                  ><i class="fa fa-edit fa-sm" title="Edit Record"></i>
+                                <a href="{% url 'pasteleria_update' p.id %}" 
+                                class="btn btn-primary" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                                    <i class="fa fa-edit fa-sm" title="Edit Record"></i>
                                 </a>
-                                <a
-                                  href="{% url 'pasteleria_delete' t.id %}"
-                                  class="btn btn-danger"
-                                  style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
-                                  ><i class="fa fa-trash fa-sm" title="Delete Record"></i>
+                                <a href="{% url 'pasteleria_delete' p.id %}" 
+                                class="btn btn-danger" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                                    <i class="fa fa-trash fa-sm" title="Delete Record"></i>
                                 </a>                
-                            </td>  
+                            </td>
+                            
                         </tr>
                     {% endfor %}
                     </tbody>

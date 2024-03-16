@@ -10,6 +10,7 @@ from django.views.generic import FormView, CreateView, DeleteView, UpdateView
 def home(request):
     return render(request, 'carrot_app/index.html')
 
+#____________________Tortas_______________________
 def tortas(request):
     return render(request, 'carrot_app/tortas.html')
 
@@ -18,22 +19,41 @@ def tortas_pedidos(request):
     contexto = {'tortas': tortas}
     return render(request, 'carrot_app/tortas_pedidos.html', contexto)
 
-def search_pedidos(request):
-    search_query = request.GET.get('search', '')
-    tortas = Tortas.objects.filter(nombre__icontains=search_query)
-    return render(request, 'tortas_pedidos.html', {'tortas': tortas})
+
+
+#____________________Pasteleria_______________________
 
 def pasteleria(request):
     return render(request, 'carrot_app/pasteleria.html')
 
+def pasteleria_pedidos(request):
+    pasteleria = Pasteleria.objects.all()
+    contexto = {'pasteleria': pasteleria}
+    return render(request, 'carrot_app/pasteleria_pedidos.html', contexto)
+
+#____________________Catering_______________________
+
 def catering(request):
     return render(request, 'carrot_app/catering.html')
+
+def catering_eventos(request):
+    catering = Catering.objects.all()
+    contexto = {'catering': catering}
+    return render(request, 'carrot_app/catering_eventos.html', contexto)
+
+#____________________Capacitaciones_______________________
 
 def capacitaciones(request):
     return render(request, 'carrot_app/capacitaciones.html')
 
+def capacitaciones_curso(request):
+    capacitaciones = Capacitaciones.objects.all()
+    contexto = {'capacitaciones': capacitaciones}
+    return render(request, 'carrot_app/capacitaciones_curso.html', contexto)
 
-#____________________ Forms ____________________
+#____________________________________________________________________________________________________________
+
+#____________________Tortas_______________________
 
 class TortasForm(FormView):
 
@@ -41,19 +61,28 @@ class TortasForm(FormView):
     template_name = 'carrot_app/tortas_form.html'
     success_url = reverse_lazy('tortas')
 
-"""class TortasCreate(CreateView):
-    model = Tortas
-    fields = '__all__'
-    success_url = reverse_lazy('tortas')"""
-
-class TortaUpdate(UpdateView):
+class TortasCreate(CreateView):
     model = Tortas
     fields = '__all__'
     success_url = reverse_lazy('tortas_pedidos')
+
+class TortasUpdate(UpdateView):
+    model = Tortas
+    fields = '__all__'
+    success_url = reverse_lazy('tortas_pedidos')
+    template_name = 'carrot_app/tortas_update.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        torta = self.get_object()  
+        context['torta'] = torta   
+        return context
 
 class TortasDelete(DeleteView):
     model = Tortas
     success_url = reverse_lazy('tortas_pedidos')
+
+#____________________Pasteleria_______________________
 
 class PasteleriaForm(FormView):
 
@@ -61,35 +90,44 @@ class PasteleriaForm(FormView):
     template_name = 'carrot_app/pasteleria_form.html'
     success_url = reverse_lazy('pasteleria')
 
-class PasteleriaCreateView(CreateView):
+class PasteleriaCreate(CreateView):
     model = Pasteleria
-    form_class = PasteleriaForm
-    template_name = 'pasteleria_form.html'
-    success_url = reverse_lazy('pasteleria')
+    fields = '__all__'
+    success_url = reverse_lazy('pasteleria_pedidos')
 
-class PasteleriaUpdateView(UpdateView):
+class PasteleriaUpdate(UpdateView):
     model = Pasteleria
-    form_class = PasteleriaForm
-    template_name = 'pasteleria_form.html'
-    success_url = reverse_lazy('pasteleria')
+    fields = '__all__'
+    success_url = reverse_lazy('pasteleria_pedidos')
 
+class PasteleriaDelete(DeleteView):
+    model = Pasteleria
+    success_url = reverse_lazy('pasteleria_pedidos')
+
+
+#____________________Catering_______________________
+    
 class CateringForm(FormView):
 
     form_class = CateringForm
     template_name = 'carrot_app/catering_form.html'
     success_url = reverse_lazy('catering')
 
-class CateringCreateView(CreateView):
+class CateringCreate(CreateView):
     model = Catering
-    form_class = CateringForm
-    template_name = 'catering_form.html'
-    success_url = reverse_lazy('catering')
+    fields = '__all__'
+    success_url = reverse_lazy('catering_eventos')
 
-class CateringUpdateView(UpdateView):
+class CateringUpdate(UpdateView):
     model = Catering
-    form_class = CateringForm
-    template_name = 'catering_form.html'
-    success_url = reverse_lazy('catering')
+    fields = '__all__'
+    success_url = reverse_lazy('catering_eventos')
+
+class CateringDelete(DeleteView):
+    model = Catering
+    success_url = reverse_lazy('catering_eventos')
+
+#____________________Capacitaciones_______________________
 
 class CapacitacionesForm(FormView):
 
@@ -97,16 +135,19 @@ class CapacitacionesForm(FormView):
     template_name = 'carrot_app/capacitaciones_form.html'
     success_url = reverse_lazy('capacitaciones')
 
-class CapacitacionesCreateView(CreateView):
+class CapacitacionesCreate(CreateView):
     model = Capacitaciones
-    form_class = CapacitacionesForm
-    template_name = 'capacitaciones_form.html'
-    success_url = reverse_lazy('capacitaciones')
+    fields = '__all__'
+    success_url = reverse_lazy('capacitaciones_curso')
 
-class CapacitacionesUpdateView(UpdateView):
+class CapacitacionesUpdate(UpdateView):
     model = Capacitaciones
-    form_class = CapacitacionesForm
-    template_name = 'capacitacioness_form.html'
-    success_url = reverse_lazy('capacitaciones')
+    fields = '__all__'
+    success_url = reverse_lazy('capacitaciones_curso')
+
+
+class CapacitacionesDelete(DeleteView):
+    model = Capacitaciones
+    success_url = reverse_lazy('capacitaciones_curso')
 
 

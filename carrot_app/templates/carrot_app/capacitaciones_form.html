@@ -9,10 +9,11 @@
 <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{% static 'assets/img/intro.jpg'}" alt="..." />
             <div class="intro-text left-0 text-center bg-faded p-5 rounded">
                 <h2 class="section-heading mb-4">
-                    <span class="section-heading-upper">Cursos</span>
-                    <span class="section-heading-lower">Cursos Form</span>
+                    <span class="section-heading-upper">Capacitaciones</span>
+                    <span class="section-heading-lower">Capacitaciones Form</span>
                 </h2>
-            <form action="{% url 'cursos_form' %}" method = "post">
+                <form action="{% url 'capacitaciones_create' %}" method = "post">
+                    
                 {% csrf_token %}
                 <table>
                     {{ form.as_table }}

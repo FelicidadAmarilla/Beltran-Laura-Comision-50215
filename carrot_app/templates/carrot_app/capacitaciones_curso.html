@@ -12,14 +12,6 @@
                     <span class="section-heading-upper">Capacitaciones</span>
                     <span class="section-heading-lower">Mis Cursos</span>
                 </h2>
-                <form class="search" action="{% url 'search_pedidos' %}" method="GET">
-                    <input type="text" name="search" class="search-bar" placeholder="Buscar pedido...">
-                    <button type="submit"
-                        class="btn btn-primary"
-                        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem; transform: scale(1.2);"
-                        ><i class="fa-solid fa-magnifying-glass" title="Detail Record"></i>
-                    </button>
-                </form>
                 <table class="table table-striped">
                     <thead>
                         <tr>
@@ -32,19 +24,19 @@
                     <tbody>
                     {% for c in capacitaciones  %}
                         <tr>
-                            <td>{{ t.id }}</td>
-                            <td>{{ t.nombre }}</td>
-                            <td>{{ t.aula }}</td>
+                            <td>{{ c.id }}</td>
+                            <td>{{ c.nombre }}</td>
+                            <td>{{ c.aula }}</td>
                             
                             <td>
                                 <a
-                                  href="{% url 'capacitaciones_update' t.id %}"
+                                  href="{% url 'capacitaciones_update' c.id %}"
                                   class="btn btn-primary"
                                   style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
                                   ><i class="fa fa-edit fa-sm" title="Edit Record"></i>
                                 </a>
                                 <a
-                                  href="{% url 'capacitaciones_delete' t.id %}"
+                                  href="{% url 'capacitaciones_delete' c.id %}"
                                   class="btn btn-danger"
                                   style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
                                   ><i class="fa fa-trash fa-sm" title="Delete Record"></i>

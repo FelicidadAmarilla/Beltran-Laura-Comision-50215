@@ -12,7 +12,12 @@
                     <span class="section-heading-upper">Pastelería</span>
                     <span class="section-heading-lower">Delicias individulaes</span>
                 </h2>
+          
                 <p class="mb-3">Tamibién puedes llevar nuestros postres, tortas y otros productos en formato individual o en box para regalo</p>
-                <div class="intro-button mx-auto"><a class="btn btn-primary btn-xl" href="{% url 'pasteleria_form' %}">Mira nuestro catalogo!</a></div>
-            </div>
+                <div class="intro-button mx-auto">
+                    <a class="btn btn-primary btn-xl" href="{% url 'pasteleria_form' %}">Haz tu pedido</a>
+                    <a class="btn btn-primary btn-xl" href="{% url 'pasteleria_pedidos' %}">Corregir mi pedido</a>
+                </div>
+        
+        
 {% endblock content%}

@@ -12,19 +12,11 @@
                     <span class="section-heading-upper">Catering</span>
                     <span class="section-heading-lower">Mis Eventos</span>
                 </h2>
-                <form class="search" action="{% url 'search_pedidos' %}" method="GET">
-                    <input type="text" name="search" class="search-bar" placeholder="Buscar pedido...">
-                    <button type="submit"
-                        class="btn btn-primary"
-                        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem; transform: scale(1.2);"
-                        ><i class="fa-solid fa-magnifying-glass" title="Detail Record"></i>
-                    </button>
-                </form>
                 <table class="table table-striped">
                     <thead>
                         <tr>
                             <th>Id</th>
-                            <th>Eventro</th>
+                            <th>Evento</th>
                             <th>Presupuesto</th>  
                             <th>Pax</th>                  
                             <th>Acciones</th>
@@ -33,21 +25,21 @@
                     <tbody>
                     {% for c in catering  %}
                         <tr>
-                            <td>{{ t.id }}</td>
-                            <td>{{ t.evento }}</td>
-                            <td>{{ t.presupuesto }}</td>
-                            <td>{{ t.pax }}</td>
+                            <td>{{ c.id }}</td>
+                            <td>{{ c.evento }}</td>
+                            <td>{{ c.presupuesto }}</td>
+                            <td>{{ c.pax }}</td>
                             
                             
                             <td>
                                 <a
-                                  href="{% url 'catering_update' t.id %}"
+                                  href="{% url 'catering_update' c.id %}"
                                   class="btn btn-primary"
                                   style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
                                   ><i class="fa fa-edit fa-sm" title="Edit Record"></i>
                                 </a>
                                 <a
-                                  href="{% url 'caterign_delete' t.id %}"
+                                  href="{% url 'catering_delete' c.id %}"
                                   class="btn btn-danger"
                                   style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
                                   ><i class="fa fa-trash fa-sm" title="Delete Record"></i>

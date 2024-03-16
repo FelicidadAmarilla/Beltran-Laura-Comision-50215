@@ -13,6 +13,8 @@
                     <span class="section-heading-lower">Catering</span>
                 </h2>
                 <p class="mb-3">Realizamos mesas dulces y finger food para todo tipo de eventos</p>
-                <div class="intro-button mx-auto"><a class="btn btn-primary btn-xl" href="{% url 'catering_form' %}">Cotiza tu evento!</a></div>
-            </div>
+                <div class="intro-button mx-auto">
+                    <a class="btn btn-primary btn-xl" href="{% url 'catering_create' %}">Solicita tu evento!</a>
+                    <a class="btn btn-primary btn-xl" href="{% url 'catering_eventos' %}">Corregir mi evento</a>
+                </div>
 {% endblock content%}
