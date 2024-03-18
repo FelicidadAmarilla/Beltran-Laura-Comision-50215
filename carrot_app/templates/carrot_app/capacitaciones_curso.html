@@ -12,6 +12,14 @@
                     <span class="section-heading-upper">Capacitaciones</span>
                     <span class="section-heading-lower">Mis Cursos</span>
                 </h2>
+                <form class="search" action="{% url 'search_curso' %}" method="GET">
+                    <input type="text" name="search" class="search-bar" placeholder="Buscar pedido...">
+                    <button type="submit"
+                        class="btn btn-primary"
+                        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem; transform: scale(1.2);"
+                        ><i class="fa-solid fa-magnifying-glass" title="Detail Record"></i>
+                    </button>
+                </form>       
                 <table class="table table-striped">
                     <thead>
                         <tr>

@@ -11,6 +11,7 @@ def home(request):
     return render(request, 'carrot_app/index.html')
 
 #____________________Tortas_______________________
+
 def tortas(request):
     return render(request, 'carrot_app/tortas.html')
 
@@ -19,7 +20,10 @@ def tortas_pedidos(request):
     contexto = {'tortas': tortas}
     return render(request, 'carrot_app/tortas_pedidos.html', contexto)
 
-
+def search_pedidos_tor(request):
+    search_query = request.GET.get('search', '')
+    tortas = Tortas.objects.filter(nombre__icontains=search_query)
+    return render(request, 'carrot_app/tortas_pedidos.html', {'tortas': tortas})
 
 #____________________Pasteleria_______________________
 
@@ -31,6 +35,11 @@ def pasteleria_pedidos(request):
     contexto = {'pasteleria': pasteleria}
     return render(request, 'carrot_app/pasteleria_pedidos.html', contexto)
 
+def search_pedidos_past(request):
+    search_query = request.GET.get('search_past', '')
+    productos = Pasteleria.objects.filter(producto__icontains=search_query)
+    return render(request, 'carrot_app/pasteleria_pedidos.html', {'productos': productos})
+
 #____________________Catering_______________________
 
 def catering(request):
@@ -41,6 +50,12 @@ def catering_eventos(request):
     contexto = {'catering': catering}
     return render(request, 'carrot_app/catering_eventos.html', contexto)
 
+def search_eventos(request):
+    search_query = request.GET.get('search', '')
+    eventos = Catering.objects.filter(evento__icontains=search_query)
+    return render(request, 'carrot_app/catering_eventos.html', {'eventos': eventos})
+
+
 #____________________Capacitaciones_______________________
 
 def capacitaciones(request):
@@ -50,6 +65,12 @@ def capacitaciones_curso(request):
     capacitaciones = Capacitaciones.objects.all()
     contexto = {'capacitaciones': capacitaciones}
     return render(request, 'carrot_app/capacitaciones_curso.html', contexto)
+
+def search_curso(request):
+    search_query = request.GET.get('search', '')
+    curso = Tortas.objects.filter(nombre__icontains=search_query)
+    return render(request, 'carrot_app/catering_curso.html', {'curso': curso})
+
 
 #____________________________________________________________________________________________________________
 
@@ -82,6 +103,7 @@ class TortasDelete(DeleteView):
     model = Tortas
     success_url = reverse_lazy('tortas_pedidos')
 
+
 #____________________Pasteleria_______________________
 
 class PasteleriaForm(FormView):
@@ -99,6 +121,13 @@ class PasteleriaUpdate(UpdateView):
     model = Pasteleria
     fields = '__all__'
     success_url = reverse_lazy('pasteleria_pedidos')
+    template_name = 'carrot_app/pasteleria_update.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        producto = self.get_object()  
+        context['producto'] = producto   
+        return context
 
 class PasteleriaDelete(DeleteView):
     model = Pasteleria
@@ -122,8 +151,16 @@ class CateringUpdate(UpdateView):
     model = Catering
     fields = '__all__'
     success_url = reverse_lazy('catering_eventos')
+    template_name = 'carrot_app/catering_update.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        evento = self.get_object()  
+        context['evento'] = evento   
+        return context
 
 class CateringDelete(DeleteView):
+    
     model = Catering
     success_url = reverse_lazy('catering_eventos')
 
@@ -144,7 +181,13 @@ class CapacitacionesUpdate(UpdateView):
     model = Capacitaciones
     fields = '__all__'
     success_url = reverse_lazy('capacitaciones_curso')
+    template_name = 'carrot_app/capacitaciones_update.html'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        curso = self.get_object()  
+        context['curso'] = curso   
+        return context
 
 class CapacitacionesDelete(DeleteView):
     model = Capacitaciones

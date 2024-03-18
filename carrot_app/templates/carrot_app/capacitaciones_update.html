@@ -1,7 +1,7 @@
 {% extends "carrot_app/index.html" %}
 
 {% block titulo %}
-<h1 class="mb-5">Actualizar Torta</h1>
+<h1 class="mb-5">Actualizar Cursada</h1>
 {% endblock titulo %}
 
 {% block content %}
@@ -9,7 +9,7 @@
 <form action="" method="POST">
     {% csrf_token %}   
     <div class="intro-text left-0 text-center bg-faded p-5 rounded">    
-        <h3>Actualizar Torta: <p style="color:orangered">{{ object }}</p> </h3>
+        <h3>Actualizar Cursada: <p style="color:orangered">{{ object }}</p> </h3>
         {{ form.as_p }}
         <input type="submit" class="btn btn-primary btn-block" value="Guardar Cambios">
     </div>     

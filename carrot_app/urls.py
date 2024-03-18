@@ -1,6 +1,7 @@
 from django.urls import path
 from .views import *
 
+
 urlpatterns = [
     path('', home, name = 'home'),
 
@@ -12,6 +13,7 @@ urlpatterns = [
     path('tortas/update/<int:pk>/', TortasUpdate.as_view(), name= 'tortas_update'),
     path('tortas/delete/<int:pk>/', TortasDelete.as_view(), name='tortas_delete'),
     path('tortas_pedidos/', tortas_pedidos, name = 'tortas_pedidos'),
+    path('search_pedidos_tor/', search_pedidos_tor, name='search_pedidos_tor'),
 
 #________________________Catering___________________________________________
 
@@ -21,6 +23,7 @@ urlpatterns = [
     path('catering/update/<int:pk>/', CateringUpdate.as_view(), name='catering_update'),
     path('catering/delete/<int:pk>/', CateringDelete.as_view(), name='catering_delete'),
     path('catering_pedidos/', catering_eventos, name = 'catering_eventos'),
+    path('search_eventos/', search_eventos, name='search_eventos'),
 
 #________________________Pastelería___________________________________________
 
@@ -30,6 +33,7 @@ urlpatterns = [
     path('pasteleria/update/<int:pk>/', PasteleriaUpdate.as_view(), name='pasteleria_update'),
     path('pasteleria/delete/<int:pk>/', PasteleriaDelete.as_view(), name='pasteleria_delete'),
     path('pasteleria_pedidos/', pasteleria_pedidos, name = 'pasteleria_pedidos'),
+    path('search_pedidos_past/', search_pedidos_past, name='search_pedidos_past'),
 
 #________________________Capacitaciones___________________________________________
 
@@ -39,6 +43,6 @@ urlpatterns = [
     path('capacitaciones/update/<int:pk>/', CapacitacionesUpdate.as_view(), name='capacitaciones_update'),
     path('capacitaciones/delete/<int:pk>/', CapacitacionesDelete.as_view(), name='capacitaciones_delete'),
     path('capacitaciones_pedidos/', capacitaciones_curso, name = 'capacitaciones_curso'),
-
+    path('search_curso/', search_pedidos_past, name='search_curso'),
 
 ]
