@@ -1,5 +1,7 @@
 from django.urls import path
 from .views import *
+from . import views
+
 
 
 urlpatterns = [
@@ -44,5 +46,15 @@ urlpatterns = [
     path('capacitaciones/delete/<int:pk>/', CapacitacionesDelete.as_view(), name='capacitaciones_delete'),
     path('capacitaciones_pedidos/', capacitaciones_curso, name = 'capacitaciones_curso'),
     path('search_curso/', search_pedidos_past, name='search_curso'),
+
+#________________________Registro___________________________________________
+
+    path('registro/', registro, name = 'registro'),
+
+#________________________Login, Logout___________________________________________
+
+    path('login/', login_request, name = 'login'),
+    path('logout/', logout_request, name = 'logout'),
+    
 
 ]

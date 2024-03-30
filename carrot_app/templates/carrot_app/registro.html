@@ -1,0 +1,28 @@
+{% extends 'carrot_app/index.html' %}
+
+{% block titulo %}
+<title> Registro de Usuario </title>
+{% endblock titulo %}
+
+{% block content %}
+<section class="page-section clearfix">
+    <div class="container">
+        <div class="intro">
+            <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="assets/img/intro.jpg" alt="..." />
+            <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+                <h2 class="section-heading mb-4">
+                    <span class="section-heading-upper">Registro de Usuario</span>
+                    <span class="section-heading-lower">¡Crea una cuenta!</span>
+                </h2>
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <table>
+                        {{ form.as_table }}
+                    </table>
+                    <input type="submit" class="btn btn-primary btn-xl" value="Registrarse">
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}

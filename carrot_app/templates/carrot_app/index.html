@@ -31,10 +31,22 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mx-auto">
                 <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{% url 'home' %}">Home</a></li>
+
+                
+                {% if user.is_authenticated %}
+                                    
                 <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{% url 'tortas' %}">Tortas</a></li>
                 <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{% url 'catering' %}">Catering</a></li>
                 <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{% url 'pasteleria' %}">Pastelería</a></li>
-                <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{% url 'capacitaciones' %}">Capacitaciones</a></li>
+                <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{% url 'capacitaciones' %}">Capacitaciones</a></li> 
+                <p  class="nav-item px-lg-4"><a class="nav-link text-uppercase"  style='color:white'>¡Hola {{user.username}}!</a></p>                                          
+                <li class="nav-item px-lg-4"><a class="nav-link text-uppercase btn btn-primary btn-xl" href="{% url 'logout' %}">Logout</a></li>                                     
+                {% else %}           
+                <li class="nav-item px-lg-4"><a class="nav-link text-uppercase btn btn-primary btn-xl" href="{% url 'registro' %}">Registrate</a></li>
+                <li class="nav-item px-lg-4"><a class="nav-link text-uppercase btn btn-primary btn-xl" href="{% url 'login' %}">Login</a></li>   
+                                  
+                {% endif %}
+                                
             </ul>
         </div>
     </div>
@@ -49,10 +61,13 @@
                     <span class="section-heading-upper">Carrot Nana Pastry</span>
                     <span class="section-heading-lower">Bienvenidos</span>
                 </h2>
-                <p class="mb-3">Acompañamos tus mejores momentos.  Aprende nuevas habilidades con nuestros cursos en Carrot Nana Academy</p>
-                <div class="intro-button mx-auto"><a class="btn btn-primary btn-xl" href="#!">Conocenos!</a></div>
+                <p class="mb-3">Acompañamos tus mejores momentos.  Aprende nuevas habilidades con nuestros cursos en Carrot Nana Academy. Registrate para hacer tus cotizaciones!</p>
+                <div class="intro-button mx-auto">
+                <a class="btn btn-primary btn-xl" href="#!">Conocenos!</a></div>
+                
             </div>
             {% endblock %}
+            
         </div>
     </div>
 </section>
