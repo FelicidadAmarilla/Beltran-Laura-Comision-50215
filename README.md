@@ -1,4 +1,14 @@
+<<<<<<< HEAD
 🥕 **Project Carrot Nana** 🥕
+=======
+IMPORTANTE: En el comentario de la entrega en la plataforma dejé un mensaje explicativo de porqué no llegué a terminar la entrega final.
+
+
+
+
+
+Project Carrot Nana
+>>>>>>> c1b683720d1b367d911c45208aa00773ad043b93
 
 *Descripción del proyecto:*
 
