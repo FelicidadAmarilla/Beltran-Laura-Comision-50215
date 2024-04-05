@@ -1,7 +1,7 @@
 {% extends 'carrot_app/index.html'%}
 
 {%block titulo%}
-<title> Bienvenidos </title>
+<title> Avatar </title>
 
 {% endblock titulo%}
 
@@ -10,16 +10,16 @@
 
             <div class="intro-text left-0 text-center bg-faded p-5 rounded">
                 <h2 class="section-heading mb-4">
-                    <span class="section-heading-upper">Pasteleria</span>
-                    <span class="section-heading-lower">Pasteleria Form</span>
+                    <span class="section-heading-upper">Avatar</span>
+                    <span class="section-heading-lower">Elige tu Avatar</span>
                 </h2>
-                <form action="{% url 'pasteleria_create' %}" method="post">
+                <form action="{% url 'agregar_avatar' %}" method="post" enctype="multipart/form-data">
             
                 {% csrf_token %}
                 <table>
                     {{ form.as_table }}
                 </table>
-                <input type="submit" value="Guardar">
+                <input type="submit" value="Actualizar Avatar">
             </form>   
             </div>
 {% endblock content%}

@@ -7,6 +7,7 @@ from django.views.generic import FormView, CreateView, DeleteView, UpdateView
 
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.views import PasswordChangeView
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 
@@ -15,11 +16,15 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 def home(request):
     return render(request, 'carrot_app/index.html')
 
+def about_me(request):
+    return render(request, "carrot_app/about_me.html") 
+
 #____________________Tortas_______________________
 
 @login_required
 def tortas(request):
     return render(request, 'carrot_app/tortas.html')
+
 @login_required
 def tortas_pedidos(request):
     tortas = Tortas.objects.all()
@@ -121,7 +126,7 @@ class PasteleriaForm(LoginRequiredMixin,FormView):
 
 class PasteleriaCreate(LoginRequiredMixin,CreateView):
     model = Pasteleria
-    fields = '__all__'
+    fields = ['producto', 'tamaño', 'cantidad']
     success_url = reverse_lazy('pasteleria_pedidos')
 
 class PasteleriaUpdate(UpdateView):
@@ -203,6 +208,7 @@ class CapacitacionesDelete(LoginRequiredMixin,DeleteView):
 #____________________Registro_______________________
 
 def registro(request):
+
     if request.method == 'POST':
         form = RegistroForm(request.POST)
         if form.is_valid():
@@ -212,15 +218,25 @@ def registro(request):
         form = RegistroForm()
     return render(request, 'carrot_app/registro.html', {'form': form})
 
-#____________________Login, Logout, Avatar_______________________
+#____________________Login, Logout_______________________
 
 def login_request(request):
+
     if request.method == 'POST':
         username = request.POST['username']
         contraseña = request.POST['password']
         user = authenticate(request, username=username, password=contraseña)
         if user is not None:
             login(request, user)
+
+            try:
+                avatar = Avatar.objects.get(user=request.user.id).imagen.url
+            except:
+                avatar = "/media/avatares/default.png"
+            finally:
+                request.session["avatar"] = avatar
+
+                
             return render(request, 'carrot_app/index.html')
         else:
             return redirect(reverse_lazy('login'))
@@ -235,3 +251,52 @@ def login_request(request):
 def logout_request(request):
     logout(request)
     return redirect(reverse_lazy('login'))
+
+#____________________Edición de perfil, Avatar_______________________
+@login_required
+def edit_profile(request):
+
+    usuario = request.user
+    if request.method == "POST":
+        form = UserEditForm(request.POST)
+        if form.is_valid():
+            user = User.objects.get(username=usuario)
+            user.email = form.cleaned_data.get("email")
+            user.first_name = form.cleaned_data.get("first_name")
+            user.last_name = form.cleaned_data.get("last_name")
+            user.save()
+            return redirect(reverse_lazy('home'))
+    else:
+        form = UserEditForm(instance=usuario)
+
+    return render(request, 'carrot_app/editar_perfil.html', {'form': form} )    
+   
+class CambiarContraseña(LoginRequiredMixin, PasswordChangeView):
+    template_name = 'carrot_app/cambiar_contrasena.html'
+    success_url = reverse_lazy('home')
+
+@login_required
+def agregar_avatar(request):
+    if request.method == "POST":
+       form = AvatarForm(request.POST, request.FILES)
+
+       if form.is_valid():
+            usuario = User.objects.get(username=request.user)
+    
+            avatar_anterior = Avatar.objects.filter(user=usuario)
+            if len(avatar_anterior) > 0:
+                for i in range(len(avatar_anterior)):
+                    avatar_anterior[i].delete()
+        
+            avatar = Avatar(user=usuario,
+                            imagen=form.cleaned_data['imagen'])
+            avatar.save()
+            imagen = Avatar.objects.get(user=usuario).imagen.url
+            request.session['avatar'] = imagen
+            
+            return redirect(reverse_lazy('home'))
+    else:
+
+        form = AvatarForm()
+
+    return render(request, 'carrot_app/agregar_avatar.html', {'form': form} )      

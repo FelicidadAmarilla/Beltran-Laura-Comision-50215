@@ -1,7 +1,7 @@
 {% extends 'carrot_app/index.html' %}
 
 {% block titulo %}
-<title> Registro de Usuario </title>
+<title> Cambio de Contraseña </title>
 {% endblock titulo %}
 
 {% block content %}
@@ -11,15 +11,15 @@
             
             <div class="intro-text left-0 text-center bg-faded p-5 rounded">
                 <h2 class="section-heading mb-4">
-                    <span class="section-heading-upper">Registro de Usuario</span>
-                    <span class="section-heading-lower">¡Crea una cuenta!</span>
+                    <span class="section-heading-upper">Contraseña</span>
+                    <span class="section-heading-lower">Cambia tu contraseña</span>
                 </h2>
                 <form action="" method="post">
                     {% csrf_token %}
                     <table>
                         {{ form.as_table }}
                     </table>
-                    <input type="submit" class="btn btn-primary btn-xl" value="Registrarse">
+                    <input type="submit" value="Cambiar">
                 </form>
             </div>
         </div>

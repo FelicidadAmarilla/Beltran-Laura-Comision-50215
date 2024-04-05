@@ -6,7 +6,7 @@
 {% endblock titulo%}
 
 {%block content%}
-<img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="assets/img/intro.jpg" alt="..." />
+
             <div class="intro-text left-0 text-center bg-faded p-5 rounded">
                 <h2 class="section-heading mb-4">
                     <span class="section-heading-upper">Capacitaciones</span>
@@ -39,15 +39,13 @@
                             <td>
                                 <a
                                   href="{% url 'capacitaciones_update' c.id %}"
-                                  class="btn btn-primary"
-                                  style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
-                                  ><i class="fa fa-edit fa-sm" title="Edit Record"></i>
+                                  class="btn btn-primary" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                                    <i class="fas fa-pencil-alt fa-sm" title="Edit Record"></i>
                                 </a>
                                 <a
                                   href="{% url 'capacitaciones_delete' c.id %}"
-                                  class="btn btn-danger"
-                                  style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
-                                  ><i class="fa fa-trash fa-sm" title="Delete Record"></i>
+                                  class="btn btn-danger" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                                    <i class="fas fa-trash-alt fa-sm" title="Delete Record"></i>
                                 </a>                
                             </td>  
                         </tr>

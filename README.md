@@ -1,28 +1,39 @@
-Project Carrot Nana
+🥕 **Project Carrot Nana** 🥕
 
-Descripción del proyecto:
+*Descripción del proyecto:*
 
 Carrot Nana es una página web diseñada para realizar pedidos y acceder a servicios ofrecidos por Carrot Nana Pastry, un emprendimiento especializado en productos de pastelería. La plataforma proporciona a los usuarios  explorar y solicitar una amplia variedad de productos, así como solicitar catering para eventos y capacitaciones relacionadas con el mundo de la pastelería.
 
-Funcionalidades principales:
+Modelos:
 
--Realizar pedidos de productos de pastelería: Los usuarios tienen la opción de solicitar tortas personalizadas y box regalo con una selección de productos de pastelería, con una combinación de galletas, cupcakes, brownies y otros dulces.
+🎂 Tortas: Contiene un formulario para pedir el tipo de torta que desea y la cantidad de porciones que se requieren, para así saber el tamaño de la torta.
 
--Pedir tortas personalizadas: Pueden elegir entre una amplia variedad de tortas con diferentes diseños y sabores, las cuales se pueden amoldar según las preferencias individuales.
+🍭 Catering: En este modelo se puede pedir cotización para un evento, aclarando tipo de evento, número de personas (pax) y presupuesto estimado.
 
--Catering para eventos: Carrot Nana Pastry ofrece servicios de catering para eventos, incluyendo la creación de mesas dulces y la preparación de finger food. Los usuarios pueden registrar eventos especiales, como bodas, cumpleaños o reuniones corporativas, y solicitar servicios de catering personalizados para satisfacer las necesidades de su ocasión. Los productos ofrecidos incluyen una variedad de deliciosos postres y tapas que complementan perfectamente cualquier celebración.
+🍪 Pastelería: Contiene un formulario para pedir distintos tipos de productos de pastelería, se debe aclarar el nombre del producto, el tamaño y la cantidad.
 
--Inscribirse a capacitaciones y cursos de pastelería: Carrot Nana Pastry/Academy ofrece capacitaciones y cursos especializados en técnicas de pastelería y repostería. Los usuarios interesados en mejorar sus habilidades culinarias pueden inscribirse en estos programas educativos, que incluyen clases teóricas y prácticas.
+👩🏽‍🏫 Capacitaciones: Este el modelo para Carrot Nana Academy, la parte de capacitaciones del emprendimiento, en el que se pueden inscribir a diferentes cursos y elegir las aulas (depende el aula, el horario) en el que se quiera cursar.
+
+📝 Registro: El usuario se debe registrar para poder acceder a los formularios y realizar cotizaciones.
+
+📥📤 Login y Logout: Una vez hecho el registro, el usuario puede ingresar para usar la página y luego desloguearse.
+
+👤 Avatar: Usuario puede cambiar el avatar de su perfil clickeando sobre el icono de avatar una vez esté logueado.
 
 Cómo probar el proyecto:
 
--Clona este repositorio en tu máquina local.
--Asegúrate de tener Python y Django instalados en tu sistema.
--Configura el entorno virtual y activa el ambiente.
--Instala las dependencias del proyecto utilizando el archivo requirements.txt.
--Ejecuta las migraciones para crear la base de datos.
--Inicia el servidor de desarrollo de Django.
--Accede a la página web desde tu navegador y explora las diferentes funcionalidades.
+✔️Clona este repositorio en tu máquina local.
+✔️Asegúrate de tener Python y Django instalados en tu sistema, este proyecto está creado con la versión 5.0.2 de Django.
+✔️Configura el entorno virtual y activa el ambiente.
+✔️Instala las dependencias del proyecto utilizando el archivo requirements.txt.
+✔️Ejecuta las migraciones para crear la base de datos.
+✔️Inicia el servidor de desarrollo de Django.
+✔️Accede a la página web desde tu navegador y explora las diferentes funcionalidades.
+
+
+✨ Usuario admin: Laura Contraseña: 58218
+✨ Otro usuario: Pablo Contraseña: roberto1234
+
 
 
 

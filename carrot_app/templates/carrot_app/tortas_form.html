@@ -1,25 +1,59 @@
-{% extends 'carrot_app/index.html'%}
+{% extends 'carrot_app/index.html' %}
 
-{%block titulo%}
+{% block titulo %}
 <title> Bienvenidos </title>
+{% endblock titulo %}
 
-{% endblock titulo%}
+{% block content %}
 
-{%block content%}
+<div class="intro-text left-0 text-center bg-faded p-5 rounded">
+    <h2 class="section-heading mb-4">
+        <span class="section-heading-upper">Tortas</span>
+        <span class="section-heading-lower">Tortas Form</span>
+    </h2>
+    <form action="{% url 'tortas_create' %}" method="post">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <th><label for="id_nombre">Nombre:</label></th>
+                <td>
+                    
+                    <select name="nombre" id="id_nombre">
+                        <option value="Red Velvet/Relleno Butter Cream">Red Velvet/Relleno Butter Cream</option>
+                        <option value="Red Velvet/Chocolate">Red Velvet/Chocolate</option>
+                        <option value="Tres Leches Clasica">Tres Leches Clasica</option>
+                        <option value="Tres Leches Chocolat">Tres Leches Chocolate</option>
+                        <option value="Chocolate/Dulce de Leche">Chocolate/Dulce de Leche</option>
+                        <option value="Chocolate/">Chocolate/Frutos Rojos</option>
+                        <option value="Chocolate/Nutella">Chocolate/Nutella</option>
+                        <option value="Chocolate/Cookies & Cream">Chocolate/Cookies & Cream</option>
+                        <option value="Chocolate/Crema de Pistachos">Chocolate/Crema de Pistachos</option>
+                        <option value="Chocolate/Crema y Duraznos">Chocolate/Crema y Duraznos</option>
+                        <option value="Vainilla/Dulce de Leche">Vainilla/Dulce de Leche</option>
+                        <option value="Vainilla/Nutell">Vainilla/Nutella</option>
+                        <option value="Vainilla/Cookies & Cream">Vainilla/Cookies & Cream</option>
+                        <option value="Vainilla/Crema de Pistachos">Vainilla/Crema de Pistachos</option>
+                        <option value="Vainilla/Crema y Duraznos">Vainilla/Crema y Duraznos</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th><label for="id_porciones">Porciones:</label></th>
+                <td>
+                    
+                    <input type="number" name="porciones" id="id_porciones" max="100">
+                </td>
+            </tr>
+            <tr>
+                <th><label for="id_comentarios">Comentarios:</label></th>
+                <td>
+                    
+                    <textarea name="comentarios" id="id_comentarios" maxlength="140"></textarea>
+                </td>
+            </tr>
+        </table>
+        <input type="submit" value="Guardar">
+    </form>
+</div>
 
-<img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="assets/img/intro.jpg" alt="..." />
-            <div class="intro-text left-0 text-center bg-faded p-5 rounded">
-                <h2 class="section-heading mb-4">
-                    <span class="section-heading-upper">Tortas</span>
-                    <span class="section-heading-lower">Tortas Form</span>
-                </h2>
-                <form action="{% url 'tortas_create' %}" method="post">
-            
-                {% csrf_token %}
-                <table>
-                    {{ form.as_table }}
-                </table>
-                <input type="submit" value="Guardar">
-            </form>   
-            </div>
-{% endblock content%}
+{% endblock content %}

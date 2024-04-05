@@ -6,6 +6,7 @@ from . import views
 
 urlpatterns = [
     path('', home, name = 'home'),
+    path('about_me', about_me, name = 'about_me'),
 
 #________________________Tortas___________________________________________
 
@@ -55,6 +56,11 @@ urlpatterns = [
 
     path('login/', login_request, name = 'login'),
     path('logout/', logout_request, name = 'logout'),
-    
+
+#________________________Edición perfil, Cambio de contraseña, Avatar_______________________
+
+    path('perfil/', edit_profile, name='perfil'),
+    path('<int:pk>/password/', CambiarContraseña.as_view(), name='cambiar_contrasena'),
+    path('agregar_avatar/', agregar_avatar, name= 'agregar_avatar'),
 
 ]
