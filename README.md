@@ -1,14 +1,7 @@
-<<<<<<< HEAD
+
 🥕 **Project Carrot Nana** 🥕
-=======
-IMPORTANTE: En el comentario de la entrega en la plataforma dejé un mensaje explicativo de porqué no llegué a terminar la entrega final.
 
 
-
-
-
-Project Carrot Nana
->>>>>>> c1b683720d1b367d911c45208aa00773ad043b93
 
 *Descripción del proyecto:*
 
@@ -16,13 +9,13 @@ Carrot Nana es una página web diseñada para realizar pedidos y acceder a servi
 
 Modelos:
 
-🎂 Tortas: Contiene un formulario para pedir el tipo de torta que desea y la cantidad de porciones que se requieren, para así saber el tamaño de la torta.
+🎂 **Tortas:** Contiene un formulario para pedir el tipo de torta que desea y la cantidad de porciones que se requieren, para así saber el tamaño de la torta.
 
-🍭 Catering: En este modelo se puede pedir cotización para un evento, aclarando tipo de evento, número de personas (pax) y presupuesto estimado.
+🍭 **Catering:** En este modelo se puede pedir cotización para un evento, aclarando tipo de evento, número de personas (pax) y presupuesto estimado.
 
-🍪 Pastelería: Contiene un formulario para pedir distintos tipos de productos de pastelería, se debe aclarar el nombre del producto, el tamaño y la cantidad.
+🍪 **Pastelería:** Contiene un formulario para pedir distintos tipos de productos de pastelería, se debe aclarar el nombre del producto, el tamaño y la cantidad.
 
-👩🏽‍🏫 Capacitaciones: Este el modelo para Carrot Nana Academy, la parte de capacitaciones del emprendimiento, en el que se pueden inscribir a diferentes cursos y elegir las aulas (depende el aula, el horario) en el que se quiera cursar.
+👩🏽‍🏫 **Capacitaciones:** Este el modelo para Carrot Nana Academy, la parte de capacitaciones del emprendimiento, en el que se pueden inscribir a diferentes cursos y elegir las aulas (depende el aula, el horario) en el que se quiera cursar.
 
 📝 Registro: El usuario se debe registrar para poder acceder a los formularios y realizar cotizaciones.
 
