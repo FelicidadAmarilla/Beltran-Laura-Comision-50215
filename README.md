@@ -7,7 +7,7 @@
 
 Carrot Nana es una página web diseñada para realizar pedidos y acceder a servicios ofrecidos por Carrot Nana Pastry, un emprendimiento especializado en productos de pastelería. La plataforma proporciona a los usuarios  explorar y solicitar una amplia variedad de productos, así como solicitar catering para eventos y capacitaciones relacionadas con el mundo de la pastelería.
 
-Modelos:
+*Modelos:*
 
 🎂 **Tortas:** Contiene un formulario para pedir el tipo de torta que desea y la cantidad de porciones que se requieren, para así saber el tamaño de la torta.
 
@@ -26,15 +26,22 @@ Modelos:
 Cómo probar el proyecto:
 
 ✔️Clona este repositorio en tu máquina local.
+
 ✔️Asegúrate de tener Python y Django instalados en tu sistema, este proyecto está creado con la versión 5.0.2 de Django.
+
 ✔️Configura el entorno virtual y activa el ambiente.
+
 ✔️Instala las dependencias del proyecto utilizando el archivo requirements.txt.
+
 ✔️Ejecuta las migraciones para crear la base de datos.
+
 ✔️Inicia el servidor de desarrollo de Django.
+
 ✔️Accede a la página web desde tu navegador y explora las diferentes funcionalidades.
 
 
 ✨ Usuario admin: Laura Contraseña: 58218
+
 ✨ Otro usuario: Pablo Contraseña: roberto1234
 
 
