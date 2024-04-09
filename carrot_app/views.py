@@ -11,7 +11,7 @@ from django.contrib.auth.views import PasswordChangeView
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-
+#____________________Home_______________________
 
 def home(request):
     return render(request, 'carrot_app/index.html')
@@ -19,7 +19,7 @@ def home(request):
 def about_me(request):
     return render(request, "carrot_app/about_me.html") 
 
-#____________________Tortas_______________________
+#____________________Tortas // Página de solicitudes procesadas_______________________
 
 @login_required
 def tortas(request):
@@ -30,36 +30,44 @@ def tortas_pedidos(request):
     tortas = Tortas.objects.all()
     contexto = {'tortas': tortas}
     return render(request, 'carrot_app/tortas_pedidos.html', contexto)
+
 @login_required
 def search_pedidos_tor(request):
     search_query = request.GET.get('search', '')
     tortas = Tortas.objects.filter(nombre__icontains=search_query)
     return render(request, 'carrot_app/tortas_pedidos.html', {'tortas': tortas})
 
-#____________________Pasteleria_______________________
+
+#____________________Pasteleria // Página de solicitudes procesadas_______________________
+
 @login_required
 def pasteleria(request):
     return render(request, 'carrot_app/pasteleria.html')
+
 @login_required
 def pasteleria_pedidos(request):
     pasteleria = Pasteleria.objects.all()
     contexto = {'pasteleria': pasteleria}
     return render(request, 'carrot_app/pasteleria_pedidos.html', contexto)
+
 @login_required
 def search_pedidos_past(request):
     search_query = request.GET.get('search_past', '')
     productos = Pasteleria.objects.filter(producto__icontains=search_query)
     return render(request, 'carrot_app/pasteleria_pedidos.html', {'productos': productos})
 
-#____________________Catering_______________________
+#____________________Catering // Página de solicitudes procesadas_______________________
+
 @login_required
 def catering(request):
     return render(request, 'carrot_app/catering.html')
+
 @login_required
 def catering_eventos(request):
     catering = Catering.objects.all()
     contexto = {'catering': catering}
     return render(request, 'carrot_app/catering_eventos.html', contexto)
+
 @login_required
 def search_eventos(request):
     search_query = request.GET.get('search', '')
@@ -67,15 +75,18 @@ def search_eventos(request):
     return render(request, 'carrot_app/catering_eventos.html', {'eventos': eventos})
 
 
-#____________________Capacitaciones_______________________
+#____________________Capacitaciones // Página de solicitudes procesadas_______________________
+
 @login_required
 def capacitaciones(request):
     return render(request, 'carrot_app/capacitaciones.html')
+
 @login_required
 def capacitaciones_curso(request):
     capacitaciones = Capacitaciones.objects.all()
     contexto = {'capacitaciones': capacitaciones}
     return render(request, 'carrot_app/capacitaciones_curso.html', contexto)
+
 @login_required
 def search_curso(request):
     search_query = request.GET.get('search', '')
@@ -83,7 +94,7 @@ def search_curso(request):
     return render(request, 'carrot_app/catering_curso.html', {'curso': curso})
 
 
-#____________________________________________________________________________________________________________
+#_____________________________________________FORMULARIOS_______________________________________________________________
 
 #____________________Tortas_______________________
 
@@ -253,6 +264,7 @@ def logout_request(request):
     return redirect(reverse_lazy('login'))
 
 #____________________Edición de perfil, Avatar_______________________
+
 @login_required
 def edit_profile(request):
 
