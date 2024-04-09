@@ -267,22 +267,17 @@ def logout_request(request):
 
 @login_required
 def edit_profile(request):
-
-    usuario = request.user
     if request.method == "POST":
-        form = UserEditForm(request.POST)
+        form = UserEditForm(request.POST, instance=request.user)
         if form.is_valid():
-            user = User.objects.get(username=usuario)
-            user.email = form.cleaned_data.get("email")
-            user.first_name = form.cleaned_data.get("first_name")
-            user.last_name = form.cleaned_data.get("last_name")
-            user.save()
-            return redirect(reverse_lazy('home'))
+            form.save()
+            return redirect(reverse_lazy('home'))  
     else:
-        form = UserEditForm(instance=usuario)
+        form = UserEditForm(instance=request.user)
 
-    return render(request, 'carrot_app/editar_perfil.html', {'form': form} )    
-   
+    return render(request, 'carrot_app/editar_perfil.html', {'form': form})
+       
+ 
 class CambiarContraseña(LoginRequiredMixin, PasswordChangeView):
     template_name = 'carrot_app/cambiar_contrasena.html'
     success_url = reverse_lazy('home')

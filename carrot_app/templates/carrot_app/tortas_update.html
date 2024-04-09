@@ -10,7 +10,37 @@
     {% csrf_token %}   
     <div class="intro-text left-0 text-center bg-faded p-5 rounded">    
         <h3>Actualizar Torta: <p style="color:orangered">{{ object }}</p> </h3>
-        {{ form.as_p }}
+        
+        <select name="nombre">
+            <option value="Red Velvet/Relleno Butter Cream">Red Velvet/Relleno Butter Cream</option>
+            <option value="Red Velvet/Chocolate">Red Velvet/Chocolate</option>
+            <option value="Tres Leches Clasica">Tres Leches Clasica</option>
+            <option value="Tres Leches Chocolat">Tres Leches Chocolate</option>
+            <option value="Chocolate/Dulce de Leche">Chocolate/Dulce de Leche</option>
+            <option value="Chocolate/">Chocolate/Frutos Rojos</option>
+            <option value="Chocolate/Nutella">Chocolate/Nutella</option>
+            <option value="Chocolate/Cookies & Cream">Chocolate/Cookies & Cream</option>
+            <option value="Chocolate/Crema de Pistachos">Chocolate/Crema de Pistachos</option>
+            <option value="Chocolate/Crema y Duraznos">Chocolate/Crema y Duraznos</option>
+            <option value="Vainilla/Dulce de Leche">Vainilla/Dulce de Leche</option>
+            <option value="Vainilla/Nutella">Vainilla/Nutella</option>
+            <option value="Vainilla/Cookies & Cream">Vainilla/Cookies & Cream</option>
+            <option value="Vainilla/Crema de Pistachos">Vainilla/Crema de Pistachos</option>
+            <option value="Vainilla/Crema y Duraznos">Vainilla/Crema y Duraznos</option>
+        </select>
+
+        <br><br>
+
+        <label for="porciones">Porciones:</label>
+        <input type="number" name="porciones" id="porciones" placeholder="Porciones" max="100">
+
+        <br><br>
+
+        <label for="comentarios">Comentarios:</label>
+        <textarea name="comentarios" id="comentarios" placeholder="Comentarios" maxlength="140"></textarea>
+
+        <br><br>
+
         <input type="submit" class="btn btn-primary btn-block" value="Guardar Cambios">
     </div>     
 </form>

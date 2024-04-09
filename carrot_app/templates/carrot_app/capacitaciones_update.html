@@ -10,7 +10,39 @@
     {% csrf_token %}   
     <div class="intro-text left-0 text-center bg-faded p-5 rounded">    
         <h3>Actualizar Cursada: <p style="color:orangered">{{ object }}</p> </h3>
-        {{ form.as_p }}
+        <tr>
+            <th><label for="id_nombre">Nombre:</label></th>
+            <td>
+                <select name="nombre" id="id_nombre">
+                    <option value="Hojaldre">Hojaldre</option>
+                    <option value=">Deco Tortas">Deco Tortas</option>
+                    <option value="Ganache">Ganache</option>
+                    <option value="Butter Cream">Butter Cream</option>
+                    <option value="Masas Pesadas">Masas Pesadas</option>
+                    <option value="Merengues">Merengues</option>
+                    <option value="Sable">Sable</option>
+                </select>
+
+                <br><br>
+
+            </td>
+        </tr>
+        <tr>
+            <th><label for="id_aula">Aula:</label></th>
+            <td>
+                
+                <select name="aula" id="id_aula">
+                    <option value="Aula 505/Sab 10 am">Aula 505/Sab 10 am</option>
+                    <option value="Aula 504/Lun 11 am">Aula 504/Lun 11 am</option>
+                    <option value="Aula 503/Mart 10 am">Aula 503/Mart 10 am</option>
+                    
+                </select>
+            </td>
+        </tr>
+    </table>
+
+    <br><br>
+    
         <input type="submit" class="btn btn-primary btn-block" value="Guardar Cambios">
     </div>     
 </form>

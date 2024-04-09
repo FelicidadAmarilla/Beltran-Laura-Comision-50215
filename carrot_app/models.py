@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 
 class Tortas(models.Model):
     nombre = models.CharField(max_length=40)
-    porciones = models.IntegerField(max_length=3)
+    porciones = models.IntegerField()
 
 
     def __str__(self):
